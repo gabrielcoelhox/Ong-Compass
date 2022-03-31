@@ -1,4 +1,4 @@
-package uol.compass.ong.config.swagger;
+package uol.compass.ong.config;
 
 import java.util.Arrays;
 
