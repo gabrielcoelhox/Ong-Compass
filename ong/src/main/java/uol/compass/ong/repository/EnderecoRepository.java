@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import uol.compass.ong.entities.Animal;
+import uol.compass.ong.entities.Endereco;
 
 @Repository
-public interface AnimalRepository extends JpaRepository<Animal, Long>{
+public interface EnderecoRepository extends JpaRepository <Endereco, Long>{
 
-	@Query("select s from Animal s where :especie is null or s.especie = :especie")
-	List<Animal> filtro(String especie);
+	@Query("select s from Endereco s where :bairro is null or s.bairro = :bairro")
+	List<Endereco> filtro(String bairro);
 }

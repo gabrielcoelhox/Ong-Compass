@@ -47,8 +47,7 @@ public class UsuarioService {
 			dto.setSenha(usuario.getSenha());
 
 			listDTO.add(dto);
-		}
-
+    }
 		return listDTO;
 	}
 	
