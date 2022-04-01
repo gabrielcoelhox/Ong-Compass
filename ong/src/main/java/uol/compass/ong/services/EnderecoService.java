@@ -37,6 +37,16 @@ public class EnderecoService {
 		return new EnderecoDTO (enderecoObj);	
 	}
 	
+	public EnderecoDTO insert(@Valid EnderecoDTO enderecoDTO) {
+		Endereco endereco = new Endereco(enderecoDTO);
+		try {
+			enderecoRepository.save(endereco);
+			return new EnderecoDTO(endereco);
+		}catch(uol.compass.ong.exceptions.MethodArgumentNotValidException e) {
+			throw new uol.compass.ong.exceptions.MethodArgumentNotValidException(e.getMessage());
+		}
+	}		
+	
 	public static List<EnderecoDTO> instanciaListaEnderecoDTO(List<Endereco> list) {
 		List<EnderecoDTO> listDTO = new ArrayList<>();
 		for (Endereco endereco : list) {

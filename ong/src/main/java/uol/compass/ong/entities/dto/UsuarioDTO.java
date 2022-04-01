@@ -14,20 +14,24 @@ import uol.compass.ong.entities.Usuario;
 public class UsuarioDTO {
 
 	private Long id_usuario;
-	
-	@NotNull @NotEmpty
+
+	@NotNull
+	@NotEmpty
 	private String nome;
-	@NotNull @NotEmpty
+	@NotNull
+	@NotEmpty
 	private String cpf;
 	@NotNull
 	private Integer idade;
-	@NotNull @NotEmpty
+	@NotNull
+	@NotEmpty
 	private String telefone;
-	@NotNull @NotEmpty
+	@NotNull
+	@NotEmpty
 	private String email;
-	@NotNull @NotEmpty
+	@NotNull
+	@NotEmpty
 	private String senha;
-	
 
 	public UsuarioDTO(Usuario usuarioObj) {
 		this.id_usuario = usuarioObj.getId_Usuario();
@@ -38,6 +42,5 @@ public class UsuarioDTO {
 		this.email = usuarioObj.getEmail();
 		this.senha = usuarioObj.getSenha();
 	}
-
 
 }

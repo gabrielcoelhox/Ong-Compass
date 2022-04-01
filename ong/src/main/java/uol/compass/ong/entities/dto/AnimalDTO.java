@@ -1,14 +1,16 @@
 package uol.compass.ong.entities.dto;
 
-import java.time.LocalDate;
-
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import lombok.Getter;
+import lombok.Setter;
 import uol.compass.ong.entities.Animal;
 import uol.compass.ong.enums.Porte;
 import uol.compass.ong.enums.Sexo;
 
+@Getter
+@Setter
 public class AnimalDTO {
 
 	private Long id_animal;
@@ -20,7 +22,6 @@ public class AnimalDTO {
 	private Porte porte;
 	
 	private Integer idade;
-	private LocalDate tempo_no_abrigo;
 	private String especie;
 	
 	public AnimalDTO() {}
@@ -30,7 +31,6 @@ public class AnimalDTO {
 		this.sexo = animalObj.getSexo();
 		this.porte = animalObj.getPorte();
 		this.idade = animalObj.getIdade();
-		this.tempo_no_abrigo = animalObj.getTempo_no_abrigo();
 		this.especie = animalObj.getEspecie();
 	}
 }

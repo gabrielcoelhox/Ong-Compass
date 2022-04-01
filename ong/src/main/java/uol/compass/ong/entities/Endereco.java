@@ -4,12 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.Valid;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import uol.compass.ong.entities.dto.EnderecoDTO;
 
 @Entity
 @Data
@@ -19,6 +21,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Endereco {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_Endereco;
@@ -30,4 +33,16 @@ public class Endereco {
 	private String bairro;
 	private String cidade;
 	private String estado;
+	
+	public Endereco(@Valid EnderecoDTO enderecoDTO) {
+		this.id_Endereco = enderecoDTO.getId_Endereco();
+		
+		this.logradouro = enderecoDTO.getLogradouro();
+		this.cep = enderecoDTO.getCep();
+		this.numero = enderecoDTO.getNumero();
+		this.complemento = enderecoDTO.getComplemento();
+		this.bairro = enderecoDTO.getBairro();
+		this.cidade = enderecoDTO.getCidade();
+		this.estado = enderecoDTO.getEstado();
+	}
 }
