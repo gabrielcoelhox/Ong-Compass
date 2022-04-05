@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import uol.compass.ong.entities.Animal;
-import uol.compass.ong.entities.Usuario;
 import uol.compass.ong.entities.dto.AnimalDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.services.AnimalService;
 
 @RestController

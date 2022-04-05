@@ -35,6 +35,7 @@ public class Animal {
 	private Porte porte;
 	
 	private Integer idade;
+	private String raca;
 	private String especie;
 	
 	public Animal(AnimalDTO animalDTO) {
@@ -42,6 +43,7 @@ public class Animal {
 		this.sexo = animalDTO.getSexo();
 		this.id_animal = animalDTO.getId_animal();
 		this.porte = animalDTO.getPorte();
+		this.raca = animalDTO.getRaca();
 		this.especie = animalDTO.getEspecie();
 	}
 }

@@ -50,13 +50,13 @@ public class AnimalService {
 		Animal an = animalRepository.findById(id).orElseThrow(
 				() -> new DefaultException("Animal com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 		an.setEspecie(animal.getEspecie());
+		an.setRaca(animal.getRaca());
 		an.setIdade(animal.getIdade());
 		an.setPorte(animal.getPorte());
 		an.setSexo(animal.getSexo());
 
 		AnimalDTO animalDTO = new AnimalDTO(an);
 		return animalDTO;
-
 	}
 	
 	public void delete(Long id) {
@@ -79,6 +79,7 @@ public class AnimalService {
 			dto.setPorte(animal.getPorte());
 			dto.setIdade(animal.getIdade());
 			dto.setEspecie(animal.getEspecie());
+			dto.setRaca(animal.getRaca());
 
 			listDTO.add(dto);
 		}

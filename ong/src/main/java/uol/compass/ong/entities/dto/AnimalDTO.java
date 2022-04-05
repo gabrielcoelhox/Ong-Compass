@@ -22,6 +22,7 @@ public class AnimalDTO {
 	private Porte porte;
 	
 	private Integer idade;
+	private String raca;
 	private String especie;
 	
 	public AnimalDTO() {}
@@ -31,6 +32,7 @@ public class AnimalDTO {
 		this.sexo = animalObj.getSexo();
 		this.porte = animalObj.getPorte();
 		this.idade = animalObj.getIdade();
+		this.raca = animalObj.getRaca();
 		this.especie = animalObj.getEspecie();
 	}
 }

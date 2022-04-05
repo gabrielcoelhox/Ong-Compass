@@ -9,3 +9,7 @@ INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estad
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. João Matias da Costa', '58059-696', '67', 'Casa', 'Mangabeiro 8', 'João Pessoa', 'PB');
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. Belém de São Francisco', '50741-460', '915', 'Apt 202', 'Várzea', 'Recife', 'PE');
 
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '3', 'Poodle', 'Cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('F', 'G', '8', 'Chihuahua', 'Cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '5', 'Pug', 'Cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '2', 'Siamês', 'Gato');
