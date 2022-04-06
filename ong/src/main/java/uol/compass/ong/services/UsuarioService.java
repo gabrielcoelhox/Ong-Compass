@@ -28,7 +28,7 @@ public class UsuarioService {
 		List<Usuario> list = usuarioRepository.findAll();
 		return instanciaListaUsuarioDTO(list);
 	}
-
+	
 	@Transactional
 	public UsuarioDTO findById(Long id) {
 
@@ -50,9 +50,8 @@ public class UsuarioService {
 	public void delete(Long id) {
 		findById(id);
 		usuarioRepository.deleteById(id);
-
 	}
-
+  
 	public static List<UsuarioDTO> instanciaListaUsuarioDTO(List<Usuario> list) {
 		List<UsuarioDTO> listDTO = new ArrayList<>();
 		for (Usuario usuario : list) {
@@ -70,13 +69,12 @@ public class UsuarioService {
 		}
 
 		return listDTO;
-
 	}
 
 	public UsuarioDTO update(Long id, @Valid Usuario usuario) {
-		Usuario newUsuario = usuarioRepository.findById(id).orElseThrow(
-				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
-
+		Usuario newUsuario = usuarioRepository.findById(id)
+				.orElseThrow(() -> new DefaultException("Usuario com id: " + id +  " não encontrado." , "NOT_FOUND", 404));
+    
 		newUsuario.setNome(usuario.getNome());
 		newUsuario.setCpf(usuario.getCpf());
 		newUsuario.setEmail(usuario.getEmail());
@@ -86,12 +84,11 @@ public class UsuarioService {
 		UsuarioDTO usuarioDTO = new UsuarioDTO(newUsuario);
 		return usuarioDTO;
 	}
-
+	
 	public void deleteById(Long id) {
-		Usuario usuarioObj = usuarioRepository.findById(id).orElseThrow(
-				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
-		usuarioRepository.delete(usuarioObj);
-
+		Usuario usuarioObj = usuarioRepository.findById(id)
+				.orElseThrow(() -> new DefaultException ("Usuario com id: " + id +  " não encontrado." , "NOT_FOUND", 404));		
+		usuarioRepository.delete(usuarioObj);	
+		
 	}
-
 }

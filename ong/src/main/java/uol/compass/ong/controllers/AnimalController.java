@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import uol.compass.ong.entities.Animal;
 import uol.compass.ong.entities.dto.AnimalDTO;
 import uol.compass.ong.services.AnimalService;
+
 
 @RestController
 @RequestMapping("/animais")
@@ -29,30 +32,35 @@ public class AnimalController {
 	@Autowired
 	AnimalService animalService;
 	
+	@ApiOperation(value= "Retorna uma lista de animais.")
 	@GetMapping
 	public ResponseEntity<List<AnimalDTO>> findAll() {
 		List<AnimalDTO> listAnimalDTO = animalService.findAll();
 		return ResponseEntity.ok().body(listAnimalDTO);
 	}
 
+	@ApiOperation(value= "Retorna um único animal.")
 	@GetMapping("/{id}")
 	public ResponseEntity<AnimalDTO> findById(@PathVariable Long id) {
 		AnimalDTO animalDTO = animalService.findById(id);
 		return ResponseEntity.ok().body(animalDTO);
 	}
 	
+	@ApiOperation(value= "Salva um animal.")
 	@PostMapping
 	public ResponseEntity<AnimalDTO> insert(@RequestBody @Valid AnimalDTO animalDTO, UriComponentsBuilder uriComponentsBuilder) {
 		URI uri = uriComponentsBuilder.path("/usuarios/{id}").buildAndExpand(animalDTO.getId_animal()).toUri();
 		return ResponseEntity.created(uri).body(animalService.insert(animalDTO));
 	}
 	
+	@ApiOperation(value= "Atualiza um animal por seu id.")
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<AnimalDTO> update(@PathVariable(value = "id") Long id, @RequestBody @Valid Animal animal) {
 		return ResponseEntity.ok().body(animalService.update(id, animal));
 	}
 	
+	@ApiOperation(value= "Deleta um único animal.")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
 		animalService.deleteById(id);
