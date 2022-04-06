@@ -42,8 +42,8 @@ public class EnderecoController {
 	public ResponseEntity<EnderecoDTO> findById(@PathVariable Long id){
 		EnderecoDTO enderecoDTO = enderecoService.findById(id);
 		return ResponseEntity.ok().body(enderecoDTO);
-	}
-	
+	}	
+
 	@ApiOperation(value= "Salva um endereço.")
 	@PostMapping
 	public ResponseEntity<EnderecoDTO> insert(@RequestBody @Valid EnderecoDTO enderecoDTO, UriComponentsBuilder uriComponentsBuilder){
