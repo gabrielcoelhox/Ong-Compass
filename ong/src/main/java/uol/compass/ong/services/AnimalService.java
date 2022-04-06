@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uol.compass.ong.entities.Animal;
-import uol.compass.ong.entities.Usuario;
 import uol.compass.ong.entities.dto.AnimalDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.AnimalRepository;
 

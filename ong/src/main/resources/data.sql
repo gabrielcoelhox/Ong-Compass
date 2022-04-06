@@ -9,7 +9,15 @@ INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estad
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. João Matias da Costa', '58059-696', '67', 'Casa', 'Mangabeiro 8', 'João Pessoa', 'PB');
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. Belém de São Francisco', '50741-460', '915', 'Apt 202', 'Várzea', 'Recife', 'PE');
 
+
 INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '3', 'Poodle', 'Cachorro');
 INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('F', 'G', '8', 'Chihuahua', 'Cachorro');
 INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '5', 'Pug', 'Cachorro');
 INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '2', 'Siamês', 'Gato');
+
+
+INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Oscar Carneiro, Tamarineira, Recife - PE', 'Cachorro da cor marrom', 'Estava perto da Drogaria Recife', 'João', 'REALIZADO');
+INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Bananeiras, Manaíra, João Pessoa - PB', 'Cachorro da cor branco com mel ', 'Próximo ao restaurante Kanpai. Tinha uma coleira da cor azul.', 'Miguel', 'REALIZADO');
+INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Barão de Grajaú, Ibura, Recife - PE', 'Gato da cor preto', 'Visto perto da casa de cor rosa, número 02', 'Ana', 'AGUARDANDO');
+
+INSERT INTO ADOCAO(id_animal, id_usuario) VALUES (1,2);

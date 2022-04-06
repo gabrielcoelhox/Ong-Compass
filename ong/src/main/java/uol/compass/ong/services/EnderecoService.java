@@ -2,9 +2,7 @@ package uol.compass.ong.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -12,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import uol.compass.ong.entities.Endereco;
-import uol.compass.ong.entities.Usuario;
 import uol.compass.ong.entities.dto.EnderecoDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.EnderecoRepository;
 

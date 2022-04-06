@@ -29,6 +29,7 @@ public class AnimalDTO {
 	
 	public AnimalDTO(Animal animalObj) {
 		this.id_animal = animalObj.getId_animal();
+		this.id_animal = animalObj.getId_animal();
 		this.sexo = animalObj.getSexo();
 		this.porte = animalObj.getPorte();
 		this.idade = animalObj.getIdade();

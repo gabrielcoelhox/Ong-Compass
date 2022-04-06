@@ -16,21 +16,26 @@ public class UsuarioDTO {
 	private Long id_usuario;
 
 	@NotNull
-	@NotEmpty
+	@NotEmpty (message = "O campo nome não pode ser vazio")
 	private String nome;
+	
 	@NotNull
-	@NotEmpty
+	@NotEmpty (message = "O campo cpf não pode ser vazio")
 	private String cpf;
+	
 	@NotNull
 	private Integer idade;
+	
 	@NotNull
-	@NotEmpty
+	@NotEmpty (message = "O campo telefone não pode ser vazio")
 	private String telefone;
+	
 	@NotNull
-	@NotEmpty
+	@NotEmpty (message = "O campo email não pode ser vazio")
 	private String email;
+	
 	@NotNull
-	@NotEmpty
+	@NotEmpty (message = "O campo senha não pode ser vazio")
 	private String senha;
 
 	public UsuarioDTO(Usuario usuarioObj) {

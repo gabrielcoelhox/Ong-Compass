@@ -20,7 +20,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import uol.compass.ong.entities.Endereco;
 import uol.compass.ong.entities.dto.EnderecoDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.services.EnderecoService;
 
 @RestController
