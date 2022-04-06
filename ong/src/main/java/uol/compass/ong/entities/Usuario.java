@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,12 +30,22 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_Usuario;
-
+	@NotNull
+	@NotEmpty
 	private String nome;
+	@NotNull
+	@NotEmpty
 	private String cpf;
+	@NotNull
 	private Integer idade;
+	@NotNull
+	@NotEmpty
 	private String telefone;
+	@NotNull
+	@NotEmpty
 	private String email;
+	@NotNull
+	@NotEmpty
 	private String senha;
 	@OneToMany(mappedBy = "usuario")
 	private List<Adocao> adocoes;
