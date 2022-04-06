@@ -20,3 +20,4 @@ INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status
 INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Bananeiras, Manaíra, João Pessoa - PB', 'Cachorro da cor branco com mel ', 'Próximo ao restaurante Kanpai. Tinha uma coleira da cor azul.', 'Miguel', 'REALIZADO');
 INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Barão de Grajaú, Ibura, Recife - PE', 'Gato da cor preto', 'Visto perto da casa de cor rosa, número 02', 'Ana', 'AGUARDANDO');
 
+INSERT INTO ADOCAO(id_animal, id_usuario) VALUES (1,2);
