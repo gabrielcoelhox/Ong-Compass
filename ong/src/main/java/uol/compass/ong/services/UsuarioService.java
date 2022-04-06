@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import uol.compass.ong.entities.Resgate;
 import uol.compass.ong.entities.Usuario;
@@ -37,7 +36,6 @@ public class UsuarioService {
 				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 		return new UsuarioDTO(usuarioObj);
 	}
-
 
 	public UsuarioDTO insert(@Valid UsuarioDTO usuarioDTO) {
 		Usuario usuario = new Usuario(usuarioDTO);
@@ -68,6 +66,7 @@ public class UsuarioService {
 			dto.setSenha(usuario.getSenha());
 
 			listDTO.add(dto);
+
 		}
 
 		return listDTO;
@@ -75,8 +74,8 @@ public class UsuarioService {
 	}
 
 	public UsuarioDTO update(Long id, @Valid Usuario usuario) {
-		Usuario newUsuario = usuarioRepository.findById(id)
-				.orElseThrow(() -> new DefaultException("Usuario com id: " + id +  " não encontrado." , "NOT_FOUND", 404));
+		Usuario newUsuario = usuarioRepository.findById(id).orElseThrow(
+				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 
 		newUsuario.setNome(usuario.getNome());
 		newUsuario.setCpf(usuario.getCpf());
