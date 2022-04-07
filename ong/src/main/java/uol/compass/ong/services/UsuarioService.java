@@ -84,12 +84,12 @@ public class UsuarioService {
 		newUsuario.setSenha(usuario.getSenha());
 		UsuarioDTO usuarioDTO = new UsuarioDTO(newUsuario);
 		return usuarioDTO;
+
 	}
 
 	public void deleteById(Long id) {
 		Usuario usuarioObj = usuarioRepository.findById(id).orElseThrow(
 				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 		usuarioRepository.delete(usuarioObj);
-
 	}
 }
