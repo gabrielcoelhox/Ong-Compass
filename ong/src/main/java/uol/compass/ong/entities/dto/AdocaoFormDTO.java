@@ -6,14 +6,10 @@ import lombok.Getter;
 
 @Getter
 public class AdocaoFormDTO {
-	
+
 	private Long id_Adocao;
 	@NotNull
 	private Long id_Animal;
 	@NotNull
 	private Long id_Usuario;
-	
-	
-	
-
 }
