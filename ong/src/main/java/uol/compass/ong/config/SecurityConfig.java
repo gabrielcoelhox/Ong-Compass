@@ -8,27 +8,40 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
 
-import uol.compass.ong.services.impl.UsuarioServiceImpl;
+import uol.compass.ong.security.jwt.JwtAuthFilter;
+import uol.compass.ong.security.jwt.JwtService;
+import uol.compass.ong.services.UsuarioService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UsuarioServiceImpl usuarioServiceImpl;
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private JwtService jwtService;
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
+	@Bean
+    public OncePerRequestFilter jwtFilter(){
+        return new JwtAuthFilter(jwtService, usuarioService);
+    }
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-        	.userDetailsService(usuarioServiceImpl)
+        	.userDetailsService(usuarioService)
         	.passwordEncoder(passwordEncoder());
     }
 
@@ -37,15 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 	      .csrf().disable()
 	      .authorizeRequests()
-	      	.antMatchers(HttpMethod.POST, "/**").permitAll()
-	          .antMatchers("/animais/**").permitAll()
-	          .antMatchers("/swagger-ui/**").permitAll()
-	          .antMatchers("/enderecos/**").hasRole("ADMIN")
-	          .antMatchers("/resgates/**").hasRole("ADMIN")
-	          .antMatchers(HttpMethod.POST, "/usuarios/**").permitAll()
-//	      .antMatchers("/usuarios/**").hasRole("ADMIN")
-	          .anyRequest().authenticated()
+	      	.antMatchers(HttpMethod.POST, "/usuarios/**").hasAnyRole("ADMIN", "USER")
+	      	.antMatchers(HttpMethod.POST, "/**").hasRole("ADMIN")
+	      	.antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
+	      	.antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
+	      	.antMatchers(HttpMethod.GET, "/**").hasAnyRole("ADMIN", "USER")
+	        .anyRequest().authenticated()
 	      .and()
-	          .httpBasic();
+	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		  .and()
+		  	.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }

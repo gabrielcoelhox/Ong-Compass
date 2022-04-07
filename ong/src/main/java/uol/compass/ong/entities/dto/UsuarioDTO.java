@@ -37,6 +37,8 @@ public class UsuarioDTO {
 	@NotNull
 	@NotEmpty (message = "O campo senha não pode ser vazio")
 	private String senha;
+	
+	private boolean admin;
 
 	public UsuarioDTO(Usuario usuarioObj) {
 		this.id_usuario = usuarioObj.getId_Usuario();
