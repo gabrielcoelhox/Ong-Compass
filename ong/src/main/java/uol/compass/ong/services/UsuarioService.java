@@ -50,7 +50,6 @@ public class UsuarioService {
 	public void delete(Long id) {
 		findById(id);
 		usuarioRepository.deleteById(id);
-
 	}
 
 	public static List<UsuarioDTO> instanciaListaUsuarioDTO(List<Usuario> list) {
@@ -70,10 +69,10 @@ public class UsuarioService {
 		}
 
 		return listDTO;
-
 	}
 
 	public UsuarioDTO update(Long id, @Valid Usuario usuario) {
+
 		Usuario newUsuario = usuarioRepository.findById(id).orElseThrow(
 				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 
@@ -93,5 +92,4 @@ public class UsuarioService {
 		usuarioRepository.delete(usuarioObj);
 
 	}
-
 }
