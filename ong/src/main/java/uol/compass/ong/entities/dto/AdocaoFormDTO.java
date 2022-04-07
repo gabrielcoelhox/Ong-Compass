@@ -12,8 +12,4 @@ public class AdocaoFormDTO {
 	private Long id_Animal;
 	@NotNull
 	private Long id_Usuario;
-	
-	
-	
-
 }
