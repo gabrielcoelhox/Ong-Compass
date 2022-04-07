@@ -66,4 +66,12 @@ public class AnimalController {
 		animalService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@ApiOperation(value= "Lista todos animais por uma especie.")
+	@GetMapping(path = "Especie/{especie}")
+	public List<AnimalDTO> getListaAnimais(@PathVariable(value = "especie") String especie) {
+		List<AnimalDTO> listAnimais = animalService.findByEspecie(especie);
+		return listAnimais;
+
+	}
 }

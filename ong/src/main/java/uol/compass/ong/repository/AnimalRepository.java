@@ -13,4 +13,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Long>{
 
 	@Query("select s from Animal s where :especie is null or s.especie = :especie")
 	List<Animal> filtro(String especie);
+
+	public List<Animal> findByEspecie(String especie);
 }

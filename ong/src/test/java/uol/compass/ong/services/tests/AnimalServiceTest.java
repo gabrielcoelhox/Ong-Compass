@@ -19,13 +19,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import uol.compass.ong.entities.Animal;
 import uol.compass.ong.entities.dto.AnimalDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.repository.AnimalRepository;
 import uol.compass.ong.services.AnimalService;
 
 @ExtendWith(SpringExtension.class)
 public class AnimalServiceTest {
-	
+
 	@InjectMocks
 	private AnimalService animalService;
 
@@ -34,13 +33,11 @@ public class AnimalServiceTest {
 
 	private Optional<Animal> optionalAnimal;
 
-
 	@BeforeEach
 	void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
 	}
-	
-	
+
 	@Test
 	void deveriaDeletarComSucessoQuandoIdExistir() {
 
@@ -51,12 +48,12 @@ public class AnimalServiceTest {
 		Mockito.verify(animalRepository, times(1)).delete(instanciaAnimal(1L));
 
 	}
-	
+
 	@Test
 	void deveriaBuscarUmaListaComTodosAnimais() {
 		Mockito.when(animalRepository.findAll()).thenReturn(List.of(instanciaAnimal(1L)));
 		List<AnimalDTO> listAnimalDTO = animalService.findAll();
-		
+
 		Assertions.assertNotNull(listAnimalDTO);
 		listAnimalDTO.stream().forEach(animalDTO -> {
 			Assertions.assertEquals(AnimalDTO.class, animalDTO.getClass());
@@ -66,16 +63,15 @@ public class AnimalServiceTest {
 			Assertions.assertEquals("Cachorro", animalDTO.getEspecie());
 			Assertions.assertEquals("Vira lata", animalDTO.getRaca());
 		});
-		
-		
+
 	}
-	
+
 	@ParameterizedTest
-	@ValueSource(longs = {1L, 2L, 3L})
+	@ValueSource(longs = { 1L, 2L, 3L })
 	void deveriaBuscarAnimalComIdExistente(Long id) {
 		Mockito.when(animalRepository.findById(id)).thenReturn(instanciaOptionalAnimal(id));
 		AnimalDTO animalDTO = animalService.findById(id);
-		
+
 		Assertions.assertNotNull(animalDTO);
 		Assertions.assertEquals(AnimalDTO.class, animalDTO.getClass());
 		Assertions.assertEquals(id, animalDTO.getId_animal());
@@ -84,9 +80,9 @@ public class AnimalServiceTest {
 		Assertions.assertEquals(animalDTO.getSexo().F, animalDTO.getSexo());
 		Assertions.assertEquals("Cachorro", animalDTO.getEspecie());
 		Assertions.assertEquals("Vira lata", animalDTO.getRaca());
-		
+
 	}
-	
+
 	@Test
 	void deveriaSalvarUmNovoAnimal() {
 
@@ -104,12 +100,7 @@ public class AnimalServiceTest {
 		Assertions.assertEquals("Vira lata", animal.getRaca());
 
 	}
-	
-	
-	
-	
-	
-	
+
 	private Animal instanciaAnimal(Long id) {
 		Animal animal = new Animal();
 		animal.setId_animal(id);
@@ -135,6 +126,5 @@ public class AnimalServiceTest {
 	private Optional<Animal> instanciaOptionalAnimal(Long id) {
 		return Optional.of(instanciaAnimal(id));
 	}
-
 
 }

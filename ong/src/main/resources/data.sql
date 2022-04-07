@@ -10,10 +10,10 @@ INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estad
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. Belém de São Francisco', '50741-460', '915', 'Apt 202', 'Várzea', 'Recife', 'PE');
 
 
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '3', 'Poodle', 'Cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('F', 'G', '8', 'Chihuahua', 'Cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '5', 'Pug', 'Cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '2', 'Siamês', 'Gato');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '3', 'Poodle', 'cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('F', 'G', '8', 'Chihuahua', 'cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '5', 'Pug', 'cachorro');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '2', 'Siamês', 'gato');
 
 
 INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Oscar Carneiro, Tamarineira, Recife - PE', 'Cachorro da cor marrom', 'Estava perto da Drogaria Recife', 'João', 'REALIZADO');
