@@ -50,6 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 	      .csrf().disable()
 	      .authorizeRequests()
+//	      	.antMatchers("/**").permitAll()
+//	      	.antMatchers(HttpMethod.POST, "/usuarios/**").permitAll()
 	      	.antMatchers(HttpMethod.POST, "/usuarios/**").hasAnyRole("ADMIN", "USER")
 	      	.antMatchers(HttpMethod.POST, "/**").hasRole("ADMIN")
 	      	.antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
@@ -57,8 +59,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	      	.antMatchers(HttpMethod.GET, "/**").hasAnyRole("ADMIN", "USER")
 	        .anyRequest().authenticated()
 	      .and()
-	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		  .and()
-		  	.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+	      	.httpBasic();
+//	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//		  .and()
+//		  	.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }

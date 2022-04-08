@@ -45,7 +45,7 @@ public class JwtService {
                  .getBody();
     }
 	
-	 public boolean tokenValido( String token ){
+	 public boolean tokenValido( String token ) {
 		 try {
 			 Claims claims = obterClaims(token);
 			 Date dataExpiracao = claims.getExpiration();
