@@ -33,7 +33,6 @@ public class UsuarioServiceTest {
 
 	private Optional<Usuario> optionalUsuario;
 
-
 	@BeforeEach
 	void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
@@ -49,12 +48,12 @@ public class UsuarioServiceTest {
 		Mockito.verify(usuarioRepository, times(1)).delete(instanciaUsuario(1L));
 
 	}
-	
+
 	@Test
 	void deveriaBuscarUmaListaComTodosUsuarios() {
 		Mockito.when(usuarioRepository.findAll()).thenReturn(List.of(instanciaUsuario(1L)));
 		List<UsuarioDTO> listUsuarioDTO = usuarioService.findAll();
-		
+
 		Assertions.assertNotNull(listUsuarioDTO);
 		listUsuarioDTO.stream().forEach(usuarioDTO -> {
 			Assertions.assertEquals(UsuarioDTO.class, usuarioDTO.getClass());
@@ -65,16 +64,15 @@ public class UsuarioServiceTest {
 			Assertions.assertEquals("123teste", usuarioDTO.getSenha());
 			Assertions.assertEquals("081955666777", usuarioDTO.getTelefone());
 		});
-		
-		
+
 	}
-	
+
 	@ParameterizedTest
-	@ValueSource(longs = {1L, 2L, 3L})
+	@ValueSource(longs = { 1L, 2L, 3L })
 	void deveriaBuscarUsuarioComIdExistente(Long id) {
 		Mockito.when(usuarioRepository.findById(id)).thenReturn(instanciaOptionalUsuario(id));
 		UsuarioDTO usuarioDTO = usuarioService.findById(id);
-		
+
 		Assertions.assertNotNull(usuarioDTO);
 		Assertions.assertEquals(UsuarioDTO.class, usuarioDTO.getClass());
 		Assertions.assertEquals(id, usuarioDTO.getId_usuario());
@@ -84,7 +82,7 @@ public class UsuarioServiceTest {
 		Assertions.assertEquals(30, usuarioDTO.getIdade());
 		Assertions.assertEquals("123teste", usuarioDTO.getSenha());
 		Assertions.assertEquals("081955666777", usuarioDTO.getTelefone());
-		
+
 	}
 
 	@Test
@@ -105,8 +103,7 @@ public class UsuarioServiceTest {
 		Assertions.assertEquals("081955666777", usuario.getTelefone());
 
 	}
-	
-	
+
 	private Usuario instanciaUsuario(Long id) {
 		Usuario usuario = new Usuario();
 		usuario.setId_Usuario(id);

@@ -68,6 +68,12 @@ public class AnimalService {
 		animalRepository.delete(animalObj);
 	}
 	
+	@Transactional
+	public List<AnimalDTO> findByEspecie(String especie) {
+		List<Animal> list = animalRepository.findByEspecie(especie.toLowerCase());
+		return instanciaListaAnimalDTO(list);
+	}
+	
 	public static List<AnimalDTO> instanciaListaAnimalDTO(List<Animal> list) {
 		List<AnimalDTO> listDTO = new ArrayList<>();
 		for (Animal animal : list) {
