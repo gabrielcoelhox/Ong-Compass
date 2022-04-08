@@ -11,6 +11,7 @@ import uol.compass.ong.entities.Animal;
 import uol.compass.ong.entities.Usuario;
 import uol.compass.ong.entities.dto.AdocaoDTO;
 import uol.compass.ong.entities.dto.AdocaoFormDTO;
+import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.AdocaoRepository;
 import uol.compass.ong.repository.AnimalRepository;
 import uol.compass.ong.repository.UsuarioRepository;
@@ -46,23 +47,29 @@ public class AdocaoService {
 		return converter(adocao);
 	}
 
-	public AdocaoDTO findById(Long id) {
-		Adocao adocao = adocaoRepository.findById(id).get();// tratar Exceção;
-		return converter(adocao);
+	public AdocaoDTO findById (Long id) {
+		Adocao adocaoObj = adocaoRepository.findById(id).orElseThrow(
+				() -> new DefaultException("Id: " + id + " não encontrado.", "NOT_FOUND", 404));
+		return new AdocaoDTO (adocaoObj);
+				
 	}
-
+	
 	public void deleteById(Long id) {
-		findById(id);
-		adocaoRepository.deleteById(id);
+		Adocao adocaoObj = adocaoRepository.findById(id).orElseThrow(
+				() -> new DefaultException(" Id: " + id + " não encontrado.", "NOT_FOUND", 404));
+		adocaoRepository.delete(adocaoObj);
 	}
 	
 	public AdocaoDTO update(AdocaoFormDTO adocaoFormDTO, Long id) {
-		Adocao adocao = adocaoRepository.findById(id).get();// tratar Exceção;
-		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).get(); // tratar Exceção
-		Animal animal = animalRepository.findById(adocaoFormDTO.getId_Animal()).get(); // tratar Exceção
+		Adocao adocao = adocaoRepository.findById(id).orElseThrow(
+				() -> new DefaultException("Adoção de Id: " + id + " não foi encontrado.", "NOT_FOUND", 404));
+		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).orElseThrow(
+				() -> new DefaultException("Usuario de Id: " + id + " não foi encontrado.", "NOT_FOUND", 404));
+		Animal animal = animalRepository.findById(adocaoFormDTO.getId_Animal()).orElseThrow(
+				() -> new DefaultException("Animal de Id: " + id + " não foi encontrado.", "NOT_FOUND", 404));
 		adocao.setUsuario(usuario);
 		adocao.setAnimal(animal);
 		return converter(adocao);
 	}
-
+	
 }
