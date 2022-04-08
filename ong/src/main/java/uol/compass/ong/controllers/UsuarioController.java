@@ -32,34 +32,35 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 
-	@ApiOperation("Listar todos")
+	@ApiOperation(value= "Retorna uma lista com todos usuários.")
 	@GetMapping
 	public ResponseEntity<List<UsuarioDTO>> findAll() {
 		List<UsuarioDTO> listUsuarioDTO = usuarioService.findAll();
 		return ResponseEntity.ok().body(listUsuarioDTO);
 	}
 
-	@ApiOperation("Encontrar por ID")
+	@ApiOperation(value= "Retorna um usuário unico.")
 	@GetMapping("/{id}")
 	public ResponseEntity<UsuarioDTO> findById(@PathVariable Long id) {
 		UsuarioDTO usuarioDTO = usuarioService.findById(id);
 		return ResponseEntity.ok().body(usuarioDTO);
 	}
 	
-	@ApiOperation("Inserir")
+	@ApiOperation(value= "Insere um novo usuário.")
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> insert(@RequestBody @Valid UsuarioDTO inserirUsuario, UriComponentsBuilder uriComponentsBuilder){
 		URI uri = uriComponentsBuilder.path("/usuarios/{id}").buildAndExpand(inserirUsuario.getId_usuario()).toUri();
 		return ResponseEntity.created(uri).body(usuarioService.insert(inserirUsuario));
 	}
 
-	@ApiOperation("Deletar")
+	@ApiOperation(value= "Deleta um Usuário.")
 	@ApiResponses({
 	      @ApiResponse(code = 200, message = "Delete realizado com sucesso",
 	            response = UsuarioDTO.class),
 	      @ApiResponse(code = 404, message = "Usuário não encontrado",
 	            response = UsuarioDTO.class)
 	})
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
 		usuarioService.delete(id);
@@ -68,7 +69,7 @@ public class UsuarioController {
 	}
 
 
-	@ApiOperation("Atualizar")
+	@ApiOperation(value= "Atualiza um usuário.")
 	@ApiResponses({
 	      @ApiResponse(code = 200, message = "Atualização realizada com sucesso",
 	            response = UsuarioDTO.class),
