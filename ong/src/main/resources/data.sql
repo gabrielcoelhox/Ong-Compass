@@ -1,7 +1,8 @@
-INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE) VALUES ('111.222.333-44', 'lazarofonseca@compass.com', 36, 'Lázaro Fonseca', '123456', '83988776655'); 
-INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE) VALUES ('222.333.444-55', 'gabrielcoelho@compass.com', 22, 'Gabriel Coelho', '654321', '83999887722'); 
-INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE) VALUES ('333.444.555-66', 'dayanaferreira@compass.com', 22, 'Dayana Ferreira', 'teste123', '71996585780'); 
-INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE) VALUES ('444.555.666-77', 'juniormororo@compass.com', 28, 'Júnior Mororó', '123teste', '71994578949');
+INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE, ADMIN) VALUES ('111.222.333-44', 'lazarofonseca@compass.com', 36, 'Lázaro Fonseca', '$2a$10$NAEClbeLfjW3qigHUfA5nOCcg8SYFk5kTju1a88.vDpS4Olw34Apm', '83988776655', 'true'); -- senha: 12345
+INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE, ADMIN) VALUES ('222.333.444-55', 'gabrielcoelho@compass.com', 22, 'Gabriel Coelho', '$2a$10$z6RCrPEUdJKok4wWQ.MhGeEGftpnzXIS5wk/HuiE.yTZ.Hk08ZWJq', '83999887722', 'true'); -- senha: 123456
+INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE, ADMIN) VALUES ('333.444.555-66', 'dayanaferreira@compass.com', 22, 'Dayana Ferreira', '$2a$10$nDmjJNiMN8AsELmnqeH4aOKkePhUTWMqX85FWuvYUqwv/7ZvJF5s.', '71996585780', 'TRUE'); -- senha: teste123
+INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE, ADMIN) VALUES ('444.555.666-77', 'juniormororo@compass.com', 28, 'Júnior Mororó', '$2a$10$ZnWdt6ssll618hT1nskxuuxLHQOFVQ3DB651aGkXDcMn2uUO5XFGO', '71994578949', 'TRUE'); -- senha: oi123
+INSERT INTO USUARIO(CPF, EMAIL, IDADE, NOME, SENHA, TELEFONE, ADMIN) VALUES ('555.555.777-88', 'teste@compass.com', 50, 'Teste User', '$2a$10$NHwSOPqFN2Q.Zidl4cCiX.UrgdxZfBxgRDCwWJmUsz194hLD3y2O2', '71994578949', 'FALSE'); -- senha: 123
 
 
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('Projetada', '61567-375', '4171', 'Sala 10', 'Planalto', 'Camaragibe', 'PE');
