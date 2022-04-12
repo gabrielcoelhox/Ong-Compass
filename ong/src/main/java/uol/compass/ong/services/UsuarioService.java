@@ -73,7 +73,6 @@ public class UsuarioService implements UserDetailsService {
 
 	@Transactional
 	public UsuarioDTO findById(Long id) {
-
 		Usuario usuarioObj = usuarioRepository.findById(id).orElseThrow(
 				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));
 		return new UsuarioDTO(usuarioObj);
@@ -89,11 +88,6 @@ public class UsuarioService implements UserDetailsService {
 		}
 	}
 
-	public void delete(Long id) {
-		findById(id);
-		usuarioRepository.deleteById(id);
-	}
-	
 	public UsuarioDTO update(Long id, @Valid Usuario usuario) {
 		Usuario newUsuario = usuarioRepository.findById(id).orElseThrow(
 				() -> new DefaultException("Usuario com id: " + id + " não encontrado.", "NOT_FOUND", 404));

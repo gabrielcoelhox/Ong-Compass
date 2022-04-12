@@ -46,7 +46,6 @@ public class Resgate {
 	private Status status;
 
 	public Resgate(ResgateDTO resgateDTO) {
-		this.id_Resgate = resgateDTO.getId_resgate();
 		this.endereco = resgateDTO.getEndereco();
 		this.caracteristicas_animal = resgateDTO.getCaracteristicas_animal();
 		this.descricao = resgateDTO.getDescricao();

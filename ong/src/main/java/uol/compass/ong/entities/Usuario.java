@@ -61,7 +61,6 @@ public class Usuario {
 	public Usuario(UsuarioDTO usuarioDTO) {
 		this.cpf = usuarioDTO.getCpf();
 		this.email = usuarioDTO.getEmail();
-		this.id_Usuario = usuarioDTO.getId_usuario();
 		this.idade = usuarioDTO.getIdade();
 		this.nome = usuarioDTO.getNome();
 		this.telefone = usuarioDTO.getTelefone();

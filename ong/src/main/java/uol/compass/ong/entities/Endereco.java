@@ -35,8 +35,6 @@ public class Endereco {
 	private String estado;
 	
 	public Endereco(@Valid EnderecoDTO enderecoDTO) {
-		this.id_Endereco = enderecoDTO.getId_Endereco();
-		
 		this.logradouro = enderecoDTO.getLogradouro();
 		this.cep = enderecoDTO.getCep();
 		this.numero = enderecoDTO.getNumero();

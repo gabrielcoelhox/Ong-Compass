@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import uol.compass.ong.entities.Animal;
 import uol.compass.ong.entities.dto.AnimalDTO;

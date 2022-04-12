@@ -68,6 +68,6 @@ public class ResgateController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
 		resgateService.deleteById(id);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 }

@@ -59,7 +59,7 @@ public class AdocaoController {
 	@Transactional
 	public ResponseEntity<?> deleteById(@PathVariable Long id) {
 		adocaoService.deleteById(id);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 	
 	@ApiOperation(value= "Atualiza um usuário.")
