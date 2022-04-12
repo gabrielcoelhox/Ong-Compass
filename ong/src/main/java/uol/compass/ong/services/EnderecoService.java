@@ -69,6 +69,7 @@ public class EnderecoService {
 		newEndereco.setNumero(endereco.getNumero());
 		newEndereco.setComplemento(endereco.getComplemento());
 		newEndereco.setBairro(endereco.getBairro());
+		newEndereco.setCidade(endereco.getCidade());
 		newEndereco.setEstado(endereco.getEstado());
 		EnderecoDTO enderecoDTO = new EnderecoDTO(newEndereco);
 		return enderecoDTO;

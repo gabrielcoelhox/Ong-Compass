@@ -55,7 +55,7 @@ public class EnderecoController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
 		enderecoService.deleteById(id);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 
 	@ApiOperation(value= "Atualiza um endereço.")

@@ -41,7 +41,6 @@ public class Animal {
 	public Animal(AnimalDTO animalDTO) {
 		this.idade = animalDTO.getIdade();
 		this.sexo = animalDTO.getSexo();
-		this.id_animal = animalDTO.getId_animal();
 		this.porte = animalDTO.getPorte();
 		this.raca = animalDTO.getRaca();
 		this.especie = animalDTO.getEspecie();
