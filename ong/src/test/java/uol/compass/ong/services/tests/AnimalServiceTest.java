@@ -92,7 +92,7 @@ public class AnimalServiceTest {
 
 		Assertions.assertNotNull(animal);
 		Assertions.assertEquals(AnimalDTO.class, animal.getClass());
-		Assertions.assertEquals(1L, animal.getId_animal());
+//		Assertions.assertEquals(1L, animal.getId_animal());
 		Assertions.assertEquals(10, animal.getIdade());
 		Assertions.assertEquals(animal.getPorte().G, animal.getPorte());
 		Assertions.assertEquals(animal.getSexo().F, animal.getSexo());
