@@ -30,21 +30,20 @@ public class AdocaoService {
 
 	public List<AdocaoDTO> findAll() {
 		List<Adocao> adocoes = adocaoRepository.findAll();
-		return adocoes.stream().map(a -> converter(a)).collect(Collectors.toList());
+		return adocoes.stream().map(AdocaoDTO::new).collect(Collectors.toList());
 	}
 
-	private AdocaoDTO converter(Adocao adocao) {
-		return new AdocaoDTO(adocao);
-	}
-
+	
 	public AdocaoDTO insert(AdocaoFormDTO adocaoFormDTO) {
-		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).get(); // tratar Exceção
-		Animal animal = animalRepository.findById(adocaoFormDTO.getId_Animal()).get(); // tratar Exceção
+		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).orElseThrow(
+				() -> new DefaultException("Id: " + adocaoFormDTO.getId_Usuario() + " não encontrado.", "NOT_FOUND", 404));
+		Animal animal = animalRepository.findById(adocaoFormDTO.getId_Animal()).orElseThrow(
+				() -> new DefaultException("Id: " + adocaoFormDTO.getId_Animal() + " não encontrado.", "NOT_FOUND", 404));
 		Adocao adocao = new Adocao();
 		adocao.setUsuario(usuario);
 		adocao.setAnimal(animal);
 		adocaoRepository.save(adocao);
-		return converter(adocao);
+		return new AdocaoDTO(adocao);
 	}
 
 	public AdocaoDTO findById (Long id) {
@@ -69,7 +68,7 @@ public class AdocaoService {
 				() -> new DefaultException("Animal de Id: " + id + " não foi encontrado.", "NOT_FOUND", 404));
 		adocao.setUsuario(usuario);
 		adocao.setAnimal(animal);
-		return converter(adocao);
+		return new AdocaoDTO(adocao);
 	}
 	
 }
