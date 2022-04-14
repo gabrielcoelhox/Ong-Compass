@@ -11,10 +11,11 @@ INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estad
 INSERT INTO ENDERECO(logradouro, cep, numero, complemento, bairro, cidade, estado) values ('R. Belém de São Francisco', '50741-460', '915', 'Apt 202', 'Várzea', 'Recife', 'PE');
 
 
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '3', 'Poodle', 'cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('F', 'G', '8', 'Chihuahua', 'cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '5', 'Pug', 'cachorro');
-INSERT INTO ANIMAL(sexo, porte, idade, raca, especie) VALUES ('M', 'P', '2', 'Siamês', 'gato');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie, status) VALUES ('M', 'P', '3', 'Poodle', 'cachorro', 'DISPONIVEL');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie, status) VALUES ('F', 'G', '8', 'Chihuahua', 'cachorro', 'DISPONIVEL');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie, status) VALUES ('M', 'P', '5', 'Pug', 'cachorro', 'DISPONIVEL');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie, status) VALUES ('M', 'P', '2', 'Siamês', 'gato', 'DISPONIVEL');
+INSERT INTO ANIMAL(sexo, porte, idade, raca, especie, status) VALUES ('M', 'P', '3', 'Pug', 'cachorro', 'ADOTADO');
 
 
 INSERT INTO RESGATE(endereco, caracteristicas_animal, descricao, usuario, status) VALUES ('R. Oscar Carneiro, Tamarineira, Recife - PE', 'Cachorro da cor marrom', 'Estava perto da Drogaria Recife', 'João', 'REALIZADO');

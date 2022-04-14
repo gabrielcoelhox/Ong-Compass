@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uol.compass.ong.dto.AdocaoDTO;
+import uol.compass.ong.dto.AdocaoFormDTO;
 import uol.compass.ong.entities.Adocao;
 import uol.compass.ong.entities.Animal;
 import uol.compass.ong.entities.Usuario;
-import uol.compass.ong.entities.dto.AdocaoDTO;
-import uol.compass.ong.entities.dto.AdocaoFormDTO;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.AdocaoRepository;
 import uol.compass.ong.repository.AnimalRepository;
@@ -33,7 +33,6 @@ public class AdocaoService {
 		return adocoes.stream().map(AdocaoDTO::new).collect(Collectors.toList());
 	}
 
-	
 	public AdocaoDTO insert(AdocaoFormDTO adocaoFormDTO) {
 		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).orElseThrow(
 				() -> new DefaultException("Id: " + adocaoFormDTO.getId_Usuario() + " não encontrado.", "NOT_FOUND", 404));

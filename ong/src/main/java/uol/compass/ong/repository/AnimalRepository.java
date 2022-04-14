@@ -7,12 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import uol.compass.ong.entities.Animal;
+import uol.compass.ong.enums.StatusAnimal;
 
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Long>{
 
 	@Query("select s from Animal s where :especie is null or s.especie = :especie")
 	List<Animal> filtro(String especie);
+	
+	@Query("select s from Animal s where :status is null or s.status = :status")
+	List<Animal> filtro(StatusAnimal status);
 
 	public List<Animal> findByEspecie(String especie);
 }

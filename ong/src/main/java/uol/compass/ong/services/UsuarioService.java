@@ -15,9 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import uol.compass.ong.dto.UsuarioDTO;
 import uol.compass.ong.entities.Resgate;
 import uol.compass.ong.entities.Usuario;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.exceptions.SenhaInvalidaException;
 import uol.compass.ong.repository.UsuarioRepository;

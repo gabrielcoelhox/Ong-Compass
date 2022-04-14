@@ -2,6 +2,7 @@ package uol.compass.ong.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -9,8 +10,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uol.compass.ong.dto.AnimalDTO;
 import uol.compass.ong.entities.Animal;
-import uol.compass.ong.entities.dto.AnimalDTO;
+import uol.compass.ong.enums.StatusAnimal;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.AnimalRepository;
 
@@ -21,9 +23,9 @@ public class AnimalService {
 	private AnimalRepository animalRepository;
 	
 	@Transactional
-	public List<AnimalDTO> findAll() {
-		List<Animal> list = animalRepository.findAll();
-		return instanciaListaAnimalDTO(list);
+	public List<AnimalDTO> findAll(StatusAnimal status) {
+		List<AnimalDTO> listAnimalDTO = animalRepository.filtro(status).stream().map(AnimalDTO::new).collect(Collectors.toList());
+		return listAnimalDTO;
 	}
 	
 	@Transactional
@@ -84,6 +86,7 @@ public class AnimalService {
 			dto.setIdade(animal.getIdade());
 			dto.setEspecie(animal.getEspecie());
 			dto.setRaca(animal.getRaca());
+			dto.setStatus(animal.getStatus());
 
 			listDTO.add(dto);
 		}

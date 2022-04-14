@@ -18,7 +18,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uol.compass.ong.entities.dto.UsuarioDTO;
+import uol.compass.ong.dto.UsuarioDTO;
 
 @Entity
 @Data

@@ -17,8 +17,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import uol.compass.ong.dto.AnimalDTO;
 import uol.compass.ong.entities.Animal;
-import uol.compass.ong.entities.dto.AnimalDTO;
+import uol.compass.ong.enums.StatusAnimal;
 import uol.compass.ong.repository.AnimalRepository;
 import uol.compass.ong.services.AnimalService;
 
@@ -52,7 +53,7 @@ public class AnimalServiceTest {
 	@Test
 	void deveriaBuscarUmaListaComTodosAnimais() {
 		Mockito.when(animalRepository.findAll()).thenReturn(List.of(instanciaAnimal(1L)));
-		List<AnimalDTO> listAnimalDTO = animalService.findAll();
+		List<AnimalDTO> listAnimalDTO = animalService.findAll(StatusAnimal.DISPONIVEL);
 
 		Assertions.assertNotNull(listAnimalDTO);
 		listAnimalDTO.stream().forEach(animalDTO -> {
@@ -92,7 +93,6 @@ public class AnimalServiceTest {
 
 		Assertions.assertNotNull(animal);
 		Assertions.assertEquals(AnimalDTO.class, animal.getClass());
-		Assertions.assertEquals(1L, animal.getId_animal());
 		Assertions.assertEquals(10, animal.getIdade());
 		Assertions.assertEquals(animal.getPorte().G, animal.getPorte());
 		Assertions.assertEquals(animal.getSexo().F, animal.getSexo());
