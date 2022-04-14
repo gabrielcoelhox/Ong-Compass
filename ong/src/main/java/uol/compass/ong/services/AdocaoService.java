@@ -33,6 +33,7 @@ public class AdocaoService {
 		return adocoes.stream().map(AdocaoDTO::new).collect(Collectors.toList());
 	}
 
+	
 	public AdocaoDTO insert(AdocaoFormDTO adocaoFormDTO) {
 		Usuario usuario = usuarioRepository.findById(adocaoFormDTO.getId_Usuario()).orElseThrow(
 				() -> new DefaultException("Id: " + adocaoFormDTO.getId_Usuario() + " não encontrado.", "NOT_FOUND", 404));

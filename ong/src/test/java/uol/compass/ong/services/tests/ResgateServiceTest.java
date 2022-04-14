@@ -94,7 +94,7 @@ public class ResgateServiceTest {
 
 		Assertions.assertNotNull(resgateDTO);
 		Assertions.assertEquals(ResgateDTO.class, resgateDTO.getClass());
-		Assertions.assertEquals(1L, resgateDTO.getId_resgate());
+//		Assertions.assertEquals(1L, resgateDTO.getId_resgate());
 		Assertions.assertEquals("Animal faminto, ferido", resgateDTO.getCaracteristicas_animal());
 		Assertions.assertEquals("Um gato, Cor branca, novinho, fêmea", resgateDTO.getDescricao());
 		Assertions.assertEquals("Rua projetada", resgateDTO.getEndereco());
