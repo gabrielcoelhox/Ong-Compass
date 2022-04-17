@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uol.compass.ong.entities.dto.EnderecoDTO;
+import uol.compass.ong.dto.EnderecoDTO;
 
 @Entity
 @Data

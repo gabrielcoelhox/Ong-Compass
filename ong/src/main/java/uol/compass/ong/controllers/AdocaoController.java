@@ -21,9 +21,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import uol.compass.ong.entities.dto.AdocaoDTO;
-import uol.compass.ong.entities.dto.AdocaoFormDTO;
-import uol.compass.ong.entities.dto.UsuarioDTO;
+import uol.compass.ong.dto.AdocaoDTO;
+import uol.compass.ong.dto.AdocaoFormDTO;
 import uol.compass.ong.services.AdocaoService;
 
 @RestController

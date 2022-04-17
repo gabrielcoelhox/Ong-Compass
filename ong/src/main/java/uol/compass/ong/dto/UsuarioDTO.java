@@ -1,4 +1,4 @@
-package uol.compass.ong.entities.dto;
+package uol.compass.ong.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

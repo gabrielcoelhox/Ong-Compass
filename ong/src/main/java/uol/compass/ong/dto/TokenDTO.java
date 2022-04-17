@@ -1,4 +1,4 @@
-package uol.compass.ong.entities.dto;
+package uol.compass.ong.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

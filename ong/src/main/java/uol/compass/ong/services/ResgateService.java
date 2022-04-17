@@ -9,8 +9,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uol.compass.ong.dto.ResgateDTO;
 import uol.compass.ong.entities.Resgate;
-import uol.compass.ong.entities.dto.ResgateDTO;
 import uol.compass.ong.exceptions.DefaultException;
 import uol.compass.ong.repository.ResgateRepository;
 

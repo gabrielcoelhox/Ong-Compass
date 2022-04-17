@@ -17,8 +17,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import uol.compass.ong.dto.UsuarioDTO;
 import uol.compass.ong.entities.Usuario;
-import uol.compass.ong.entities.dto.UsuarioDTO;
 import uol.compass.ong.repository.UsuarioRepository;
 import uol.compass.ong.services.UsuarioService;
 
