@@ -106,7 +106,7 @@ public class UsuarioService implements UserDetailsService {
 		List<UsuarioDTO> listDTO = new ArrayList<>();
 		for (Usuario usuario : list) {
 			UsuarioDTO dto = new UsuarioDTO();
-			dto.setId_usuario(usuario.getId_Usuario());  // Conferir
+			dto.setId_usuario(usuario.getId_Usuario()); 
 			dto.setNome(usuario.getNome());
 			dto.setCpf(usuario.getCpf());
 			dto.setEmail(usuario.getEmail());
