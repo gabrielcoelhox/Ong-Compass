@@ -17,8 +17,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import uol.compass.ong.dto.EnderecoDTO;
 import uol.compass.ong.entities.Endereco;
-import uol.compass.ong.entities.dto.EnderecoDTO;
 import uol.compass.ong.repository.EnderecoRepository;
 import uol.compass.ong.services.EnderecoService;
 

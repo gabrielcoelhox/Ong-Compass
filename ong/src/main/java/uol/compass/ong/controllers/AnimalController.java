@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import io.swagger.annotations.ApiOperation;
+import uol.compass.ong.dto.AnimalDTO;
 import uol.compass.ong.entities.Animal;
-import uol.compass.ong.entities.dto.AnimalDTO;
+import uol.compass.ong.enums.StatusAnimal;
+import uol.compass.ong.repository.AnimalRepository;
 import uol.compass.ong.services.AnimalService;
 
 
@@ -31,11 +34,13 @@ public class AnimalController {
 	@Autowired
 	AnimalService animalService;
 	
+	@Autowired
+	AnimalRepository animalRepository;
+	
 	@ApiOperation(value= "Retorna uma lista de animais.")
 	@GetMapping
-	public ResponseEntity<List<AnimalDTO>> findAll() {
-		List<AnimalDTO> listAnimalDTO = animalService.findAll();
-		return ResponseEntity.ok().body(listAnimalDTO);
+	public ResponseEntity<List<AnimalDTO>> findAll(@RequestParam (required = false) StatusAnimal status) {
+		return ResponseEntity.ok().body(animalService.findAll(status));
 	}
 
 	@ApiOperation(value= "Retorna um único animal.")

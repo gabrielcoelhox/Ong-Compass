@@ -9,17 +9,14 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import uol.compass.ong.entities.dto.AnimalDTO;
+import uol.compass.ong.dto.AnimalDTO;
 import uol.compass.ong.enums.Porte;
 import uol.compass.ong.enums.Sexo;
+import uol.compass.ong.enums.StatusAnimal;
 
 @Entity
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Animal {
@@ -27,22 +24,26 @@ public class Animal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_animal;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Porte porte;
-	
+
+	@Enumerated(EnumType.STRING)
+	private StatusAnimal status;
+
 	private Integer idade;
 	private String raca;
 	private String especie;
-	
+
 	public Animal(AnimalDTO animalDTO) {
 		this.idade = animalDTO.getIdade();
 		this.sexo = animalDTO.getSexo();
 		this.porte = animalDTO.getPorte();
 		this.raca = animalDTO.getRaca();
 		this.especie = animalDTO.getEspecie();
+		this.status = animalDTO.getStatus();
 	}
 }
