@@ -8,8 +8,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import uol.compass.ong.security.JwtAuthFilter;
@@ -48,19 +50,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 	      .csrf().disable()
 	      .authorizeRequests()
-//	      	.antMatchers("/**").permitAll()
-//	      	.antMatchers(HttpMethod.POST, "/usuarios/**").permitAll()
-//	      	.antMatchers(HttpMethod.POST, "/usuarios/**").hasAnyRole("ADMIN", "USER")
+	      	.antMatchers(HttpMethod.POST, "/usuarios/auth/**").permitAll()
+	      	.antMatchers(HttpMethod.POST, "/usuarios").hasRole("ADMIN")
 	      	.antMatchers(HttpMethod.GET, "/**").hasAnyRole("ADMIN", "USER")
-	      	.antMatchers(HttpMethod.POST, "/usuarios/**").hasRole("ADMIN")
-	      	.antMatchers(HttpMethod.POST, "/**").hasRole("ADMIN")
 	      	.antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
 	      	.antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
 	        .anyRequest().authenticated()
 	      .and()
-	      	.httpBasic();
-//	        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//		  .and()
-//		  	.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+	        .sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		  .and()
+		  	.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }

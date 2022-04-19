@@ -60,8 +60,12 @@ public class AnimalService {
 	}
 	
 	public void delete(Long id) {
-		findById(id);
-		animalRepository.deleteById(id);
+		try {
+			findById(id);
+			animalRepository.deleteById(id);
+		} catch (uol.compass.ong.exceptions.MethodArgumentNotValidException e) {
+			throw new uol.compass.ong.exceptions.MethodArgumentNotValidException(e.getMessage());
+		} 
 	}
 	
 	public void deleteById(Long id) {
@@ -72,8 +76,12 @@ public class AnimalService {
 	
 	@Transactional
 	public List<AnimalDTO> findByEspecie(String especie) {
-		List<Animal> list = animalRepository.findByEspecie(especie.toLowerCase());
-		return instanciaListaAnimalDTO(list);
+		try {
+			List<Animal> list = animalRepository.findByEspecie(especie.toLowerCase());
+			return instanciaListaAnimalDTO(list);
+		} catch (uol.compass.ong.exceptions.MethodArgumentNotValidException e) {
+			throw new uol.compass.ong.exceptions.MethodArgumentNotValidException(e.getMessage());
+		}
 	}
 	
 	public static List<AnimalDTO> instanciaListaAnimalDTO(List<Animal> list) {
