@@ -60,12 +60,8 @@ public class AnimalService {
 	}
 	
 	public void delete(Long id) {
-		try {
-			findById(id);
-			animalRepository.deleteById(id);
-		} catch (uol.compass.ong.exceptions.MethodArgumentNotValidException e) {
-			throw new uol.compass.ong.exceptions.MethodArgumentNotValidException(e.getMessage());
-		} 
+		findById(id);
+		animalRepository.deleteById(id);
 	}
 	
 	public void deleteById(Long id) {
